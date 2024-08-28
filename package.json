@@ -1,0 +1,30 @@
+{
+  "name": "minichat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server_build": "tsc -p ./app/server",
+    "server_start": "node -r dotenv/config ./dist/server/index.js dotenv_config_path=./app/server/.env",
+    "server_dev": "npm run server_build && npm run server_start",
+    "client_build": "vite build --config ./app/client/vite.config.ts",
+    "client_dev": "vite --config ./app/client/vite.config.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.1",
+    "sass": "^1.77.8",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "postgres": "^3.4.4"
+  }
+}
