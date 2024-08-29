@@ -1,37 +1,19 @@
 import { html } from "sanitized-html-templates";
 import { apiClient } from "./api";
 import "./style.scss";
-import { MessagesComponent } from "./components/messages/messages.component";
-import { Messages } from "./components/messages/messages.interface";
-import { MessageComponent } from "./components/message";
-import sanitizeHtml from "sanitize-html";
+import { Message, MessageComponent } from "./components/message";
 
-const messages: Messages = [
+const messages: Message[] = [
   {
     author: "Alice",
     message: "Hello, Bob!",
   },
 ];
 
-// console.log(MessagesComponent(messages).getHtml());
-// console.log(
-//   messages
-//     .map(MessageComponent)
-//     .map((x) => x.getHtml())
-//     .join("")
-// );
-
-console.log(
-  MessageComponent({
-    author: "Alice",
-    message: "Hello, Bob!",
-  }).getHtml()
-);
-
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = html`
   <div class="main-div">
     <h1>Messages</h1>
-    ${MessagesComponent(messages)}
+    ${messages.map(MessageComponent)}
   </div>
 `.getHtml();
 
